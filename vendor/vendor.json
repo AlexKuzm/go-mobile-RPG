@@ -1,0 +1,25 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "s5tdcjh84+tiKS3oSq77mzjB970=",
+			"path": "github.com/google/uuid",
+			"revision": "c2e93f3ae59f2904160ceaab466009f965df46d6",
+			"revisionTime": "2019-04-16T17:24:45Z"
+		},
+		{
+			"checksumSHA1": "WgzN84Tx+7en7p/e8gSTupIqygw=",
+			"path": "github.com/gorilla/mux",
+			"revision": "c5c6c98bc25355028a63748a498942a6398ccd22",
+			"revisionTime": "2019-03-16T13:32:43Z"
+		},
+		{
+			"checksumSHA1": "3ORLCzeT6ci2RkN0jo1bY6bmE8A=",
+			"path": "github.com/gorilla/websocket",
+			"revision": "80c2d40e9b91f2ef7a9c1a403aeec64d1b89a9a6",
+			"revisionTime": "2019-04-27T04:03:06Z"
+		}
+	],
+	"rootPath": "github.com/mishuk-sk/go-pathfinder"
+}
