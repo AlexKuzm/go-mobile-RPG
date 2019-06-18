@@ -37,6 +37,7 @@ func (s *WsServer) ListenAndServe(addr string) error {
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 	}
+	s.users = make(map[string]time.Time)
 	return s.server.ListenAndServe()
 }
 
@@ -70,6 +71,7 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc func(*websocket.C
 		}
 		if err := s.checkUser(token.Token); err != nil {
 			log.Println(err)
+			conn.Close()
 			return
 		}
 		handleFunc(conn)

@@ -3,6 +3,66 @@
 	"ignore": "test",
 	"package": [
 		{
+			"path": "bufio",
+			"revision": ""
+		},
+		{
+			"path": "bytes",
+			"revision": ""
+		},
+		{
+			"path": "compress/flate",
+			"revision": ""
+		},
+		{
+			"path": "context",
+			"revision": ""
+		},
+		{
+			"path": "crypto/md5",
+			"revision": ""
+		},
+		{
+			"path": "crypto/rand",
+			"revision": ""
+		},
+		{
+			"path": "crypto/sha1",
+			"revision": ""
+		},
+		{
+			"path": "crypto/tls",
+			"revision": ""
+		},
+		{
+			"path": "database/sql/driver",
+			"revision": ""
+		},
+		{
+			"path": "encoding/base64",
+			"revision": ""
+		},
+		{
+			"path": "encoding/binary",
+			"revision": ""
+		},
+		{
+			"path": "encoding/hex",
+			"revision": ""
+		},
+		{
+			"path": "encoding/json",
+			"revision": ""
+		},
+		{
+			"path": "errors",
+			"revision": ""
+		},
+		{
+			"path": "fmt",
+			"revision": ""
+		},
+		{
 			"checksumSHA1": "s5tdcjh84+tiKS3oSq77mzjB970=",
 			"path": "github.com/google/uuid",
 			"revision": "c2e93f3ae59f2904160ceaab466009f965df46d6",
@@ -21,22 +81,102 @@
 			"revisionTime": "2019-04-27T04:03:06Z"
 		},
 		{
-			"checksumSHA1": "HJL2ssw3mh/+U2DiU8s2arTz1QU=",
+			"checksumSHA1": "JuJn5DFfD2EjQ5u6TIgLfUUHLrk=",
 			"path": "github.com/mishuk-sk/go-pathfinder",
-			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
-			"revisionTime": "2019-06-18T15:57:42Z"
+			"revision": "f697f9f0e3f3db65669a922e0b176976442651b1",
+			"revisionTime": "2019-06-18T16:05:47Z"
 		},
 		{
-			"checksumSHA1": "m8uW8ABYw8lVCZrbxG3ZLTbzdvs=",
+			"checksumSHA1": "tOww7gnWUG+y4NEbmVSuYGvrJsE=",
 			"path": "github.com/mishuk-sk/go-pathfinder/server",
-			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
-			"revisionTime": "2019-06-18T15:57:42Z"
+			"revision": "f697f9f0e3f3db65669a922e0b176976442651b1",
+			"revisionTime": "2019-06-18T16:05:47Z"
 		},
 		{
 			"checksumSHA1": "Q1fVQYJTgod+Ksl6XwbG731pvGc=",
 			"path": "github.com/mishuk-sk/go-pathfinder/server/websocketsrv",
-			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
-			"revisionTime": "2019-06-18T15:57:42Z"
+			"revision": "f697f9f0e3f3db65669a922e0b176976442651b1",
+			"revisionTime": "2019-06-18T16:05:47Z"
+		},
+		{
+			"path": "hash",
+			"revision": ""
+		},
+		{
+			"path": "io",
+			"revision": ""
+		},
+		{
+			"path": "io/ioutil",
+			"revision": ""
+		},
+		{
+			"path": "log",
+			"revision": ""
+		},
+		{
+			"path": "math/rand",
+			"revision": ""
+		},
+		{
+			"path": "net",
+			"revision": ""
+		},
+		{
+			"path": "net/http",
+			"revision": ""
+		},
+		{
+			"path": "net/http/httptrace",
+			"revision": ""
+		},
+		{
+			"path": "net/url",
+			"revision": ""
+		},
+		{
+			"path": "os",
+			"revision": ""
+		},
+		{
+			"path": "os/signal",
+			"revision": ""
+		},
+		{
+			"path": "path",
+			"revision": ""
+		},
+		{
+			"path": "regexp",
+			"revision": ""
+		},
+		{
+			"path": "strconv",
+			"revision": ""
+		},
+		{
+			"path": "strings",
+			"revision": ""
+		},
+		{
+			"path": "sync",
+			"revision": ""
+		},
+		{
+			"path": "syscall",
+			"revision": ""
+		},
+		{
+			"path": "time",
+			"revision": ""
+		},
+		{
+			"path": "unicode/utf8",
+			"revision": ""
+		},
+		{
+			"path": "unsafe",
+			"revision": ""
 		}
 	],
 	"rootPath": "github.com/mishuk-sk/go-pathfinder"

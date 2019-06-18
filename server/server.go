@@ -43,8 +43,17 @@ func NewServer() *WithWS {
 		},
 	}
 	router := mux.NewRouter()
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { w.Write([]byte("hello")) })
-	s.wsSrv.AddWebsocketHandler("/", func(conn *websocket.Conn) { conn.WriteMessage(websocket.TextMessage, []byte("world")) })
+	router.HandleFunc("/", getToken(&s.wsSrv))
+	s.wsSrv.AddWebsocketHandler("/", func(conn *websocket.Conn) {
+		for {
+			_, p, err := conn.ReadMessage()
+			if err != nil {
+				log.Println(err)
+				break
+			}
+			conn.WriteMessage(websocket.TextMessage, p)
+		}
+	})
 	s.Handler = router
 
 	return s
