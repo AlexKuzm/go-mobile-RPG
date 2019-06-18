@@ -1,6 +1,7 @@
 package websocketsrv
 
 import (
+	"context"
 	"errors"
 	"fmt"
 	"log"
@@ -49,7 +50,7 @@ func (s *WsServer) RegisterUser(token string) error {
 }
 
 // AddWebsocketHandler adds new WebsocketHandler to server. Must be added BEFORE server starts serving
-func (s *WsServer) AddWebsocketHandler(path string, handleFunc WebsocketHandler) {
+func (s *WsServer) AddWebsocketHandler(path string, handleFunc func(*websocket.Conn)) {
 	if s.serveMux == nil {
 		s.serveMux = http.NewServeMux()
 	}
@@ -73,6 +74,10 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc WebsocketHandler)
 		}
 		handleFunc(conn)
 	})
+}
+
+func (s *WsServer) Shutdown(ctx context.Context) error {
+	return s.server.Shutdown(ctx)
 }
 
 func (s *WsServer) checkUser(token string) error {
