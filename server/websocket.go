@@ -57,14 +57,14 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc WebsocketHandler)
 			return
 		}
 		var token struct {
-			token string `json: "token"`
+			Token string `json: "token"`
 		}
 		err = conn.ReadJSON(&token)
 		if err != nil {
 			log.Printf("Unable to read JSON FIRST message from ws connection: %v\n", err)
 			return
 		}
-		if err := s.checkUser(token.token); err != nil {
+		if err := s.checkUser(token.Token); err != nil {
 			log.Println(err)
 			return
 		}
