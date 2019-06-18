@@ -29,19 +29,19 @@ type WsServer struct {
 type WebsocketHandler func(*websocket.Conn)
 
 // ListenAndServe Starts server listening on provided addr with routes specified by AddWebsocketHandler
-func (s *WsServer) ListenAndServe(addr string) {
+func (s *WsServer) ListenAndServe(addr string) error {
 	s.server = http.Server{
 		Addr:         addr,
 		Handler:      s.serveMux,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 	}
-	s.server.ListenAndServe()
+	return s.server.ListenAndServe()
 }
 
 // RegisterUser adds user token to server-known users for future connection establishment
 func (s *WsServer) RegisterUser(token string) error {
-	if _, ok := s.users[token]; ok == true {
+	if _, ok := s.users[token]; ok {
 		return fmt.Errorf("User with token %s already exists", token)
 	}
 	s.users[token] = time.Now().Add(s.TokenValidPeriod)
