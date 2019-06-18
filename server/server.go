@@ -11,9 +11,9 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
+	"github.com/mishuk-sk/go-pathfinder/server/websocketsrv"
 
 	"github.com/gorilla/websocket"
-	"github.com/mishuk-sk/go-pathfinder/websocketsrv"
 )
 
 // WithWS defines both regular http server for REST API
