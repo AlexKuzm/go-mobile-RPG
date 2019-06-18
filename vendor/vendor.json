@@ -19,6 +19,24 @@
 			"path": "github.com/gorilla/websocket",
 			"revision": "80c2d40e9b91f2ef7a9c1a403aeec64d1b89a9a6",
 			"revisionTime": "2019-04-27T04:03:06Z"
+		},
+		{
+			"checksumSHA1": "HJL2ssw3mh/+U2DiU8s2arTz1QU=",
+			"path": "github.com/mishuk-sk/go-pathfinder",
+			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
+			"revisionTime": "2019-06-18T15:57:42Z"
+		},
+		{
+			"checksumSHA1": "m8uW8ABYw8lVCZrbxG3ZLTbzdvs=",
+			"path": "github.com/mishuk-sk/go-pathfinder/server",
+			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
+			"revisionTime": "2019-06-18T15:57:42Z"
+		},
+		{
+			"checksumSHA1": "Q1fVQYJTgod+Ksl6XwbG731pvGc=",
+			"path": "github.com/mishuk-sk/go-pathfinder/server/websocketsrv",
+			"revision": "c15561c4022b6a14fa57c7cdae18eea6bb6c49ec",
+			"revisionTime": "2019-06-18T15:57:42Z"
 		}
 	],
 	"rootPath": "github.com/mishuk-sk/go-pathfinder"
