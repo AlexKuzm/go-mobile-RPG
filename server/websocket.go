@@ -57,7 +57,7 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc WebsocketHandler)
 			return
 		}
 		var token struct {
-			Token string `json: "token"`
+			Token string `json:"token"`
 		}
 		err = conn.ReadJSON(&token)
 		if err != nil {
