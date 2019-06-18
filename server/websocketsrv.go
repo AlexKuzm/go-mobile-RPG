@@ -1,4 +1,4 @@
-package websocket
+package websocketsrv
 
 import (
 	"errors"
@@ -11,15 +11,18 @@ import (
 )
 
 var (
+	// ErrUserNotRegistered represents error, when user, who's token doesn't exist in server known tokens,
+	// tries to create socket connection
 	ErrUserNotRegistered = errors.New("User is not registered to establish websocket connection")
 )
 
 // WsServer defines http server, that upgrades connection to websocket and handles it
 type WsServer struct {
-	Upgrader websocket.Upgrader
-	server   http.Server
-	serveMux *http.ServeMux
-	users    map[string]time.Time
+	Upgrader         websocket.Upgrader
+	TokenValidPeriod time.Duration
+	server           http.Server
+	serveMux         *http.ServeMux
+	users            map[string]time.Time
 }
 
 // WebsocketHandler represents simple wrapper for function, handling websocket connection
@@ -37,11 +40,11 @@ func (s *WsServer) ListenAndServe(addr string) {
 }
 
 // RegisterUser adds user token to server-known users for future connection establishment
-func (s *WsServer) RegisterUser(token string, expiresOn time.Time) error {
+func (s *WsServer) RegisterUser(token string) error {
 	if _, ok := s.users[token]; ok == true {
 		return fmt.Errorf("User with token %s already exists", token)
 	}
-	s.users[token] = expiresOn
+	s.users[token] = time.Now().Add(s.TokenValidPeriod)
 	return nil
 }
 
