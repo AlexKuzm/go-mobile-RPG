@@ -29,15 +29,19 @@ type WsServer struct {
 // WebsocketHandler represents simple wrapper for function, handling websocket connection
 type WebsocketHandler func(*websocket.Conn)
 
-// ListenAndServe Starts server listening on provided addr with routes specified by AddWebsocketHandler
-func (s *WsServer) ListenAndServe(addr string) error {
+// Init initializes server for future listening
+func (s *WsServer) Init() {
 	s.server = http.Server{
-		Addr:         addr,
 		Handler:      s.serveMux,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 	}
 	s.users = make(map[string]time.Time)
+}
+
+// ListenAndServe Starts server listening on provided addr with routes specified by AddWebsocketHandler
+func (s *WsServer) ListenAndServe(addr string) error {
+	s.server.Addr = addr
 	return s.server.ListenAndServe()
 }
 
@@ -59,6 +63,7 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc func(*websocket.C
 		conn, err := s.Upgrader.Upgrade(w, r, nil)
 		if err != nil {
 			log.Printf("Unsuccessful connection upgrade: %v\n", err)
+			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
 		var token struct {
@@ -67,6 +72,13 @@ func (s *WsServer) AddWebsocketHandler(path string, handleFunc func(*websocket.C
 		err = conn.ReadJSON(&token)
 		if err != nil {
 			log.Printf("Unable to read JSON FIRST message from ws connection: %v\n", err)
+			if err := conn.WriteJSON(struct {
+				Err string `json:"err"`
+			}{
+				"Can't read token from json",
+			}); err != nil {
+				log.Printf("Unable writing json err to websocket connection: %v", err)
+			}
 			return
 		}
 		if err := s.checkUser(token.Token); err != nil {

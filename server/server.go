@@ -84,6 +84,7 @@ func (s *WithWS) ServeWithWebsocket() *sync.WaitGroup {
 	var wg sync.WaitGroup
 	wg.Add(2)
 	go func() {
+		s.wsSrv.Init()
 		if err := s.wsSrv.ListenAndServe(":8090"); err != nil {
 			log.Println("Enable to start websocket server: " + err.Error())
 		}
